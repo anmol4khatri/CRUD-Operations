@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const userModel = require('./usermodel');
+const userModel = require('./models/user');
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -16,8 +16,19 @@ app.get('/create', (req, res) => {
     res.render('create');
 });
 
+app.post('/api/create', async (req, res) => {
+    let{name,email,image} = req.body;
+    let createdUser = await userModel.create({
+        name,
+        email,
+        image
+    });
+    res.redirect('/read');
+});
+
 app.get('/read', async (req, res) => {
-    res.render('read');
+    let allusers = await userModel.find();
+    res.render('read', { users:allusers });
 });
 
 app.listen(3000, () => {

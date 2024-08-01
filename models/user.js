@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/mongopractice');
+mongoose.connect('mongodb://localhost:27017/crud');
 
 const userSchema = mongoose.Schema({
+    image: String,
     name: String,
-    username: String,
     email: String,
 });
 
