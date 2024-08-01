@@ -40,6 +40,16 @@ This project is a simple web application designed to demonstrate the core concep
 ├── package.json           # Project metadata and dependencies
 └── README.md              # Project documentation
 ```
+## Screenshots
+
+### Home Page
+![Home Page](Screenshots/Create.png)
+
+### Create User Page
+![Create User Page](Screenshots/Home%20Page.png)
+
+### Read/Update/Delete Page
+![Read/Update/Delete Page](Screenshots/Read_Update_Delete.png)
 
 ## Installation
 
