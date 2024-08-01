@@ -13,22 +13,26 @@
             <a class="text-blue-500" href="/">Home</a>
             <a class="text-blue-500" href="./create">Create</a>
         </div>
-        <h1 class="text-3xl tracking-tighter mb-5">All Users</h1>
-        <div class="users flex gap-3 flex-wrap">
-            <% users.forEach(user => { %>
-                <div class="user w-55 p-4 bg-zinc-800">
-                    <div class="image w-full h-52 rounded-lg bg-zinc-700">
-                        <img class="rounded-lg object-cover w-full h-full" src="<%= user.image %>" alt="<%= user.name %>">
+            <% if (users.length > 0) { %>
+                <h1 class="text-3xl tracking-tighter mb-5">All Users</h1>
+                <div class="users flex gap-3 flex-wrap">
+                <% users.forEach(user => { %>
+                    <div class="user w-55 p-4 bg-zinc-800">
+                        <div class="image w-full h-52 rounded-lg bg-zinc-700">
+                            <img class="rounded-lg object-cover w-full h-full" src="<%= user.image %>" alt="<%= user.name %>">
+                        </div>
+                        <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+                        <h5 class="text-zinc-500"><%= user.email %></h5>
+                        <div class="flex justify-between mt-3">
+                            <a class="text-zinc-200" href="">Update</a>
+                            <a class="text-red-500" href="/delete/<%= user._id %>">Delete</a>
+                        </div>
                     </div>
-                    <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
-                    <h5 class="text-zinc-500"><%= user.email %></h5>
-                    <div class="flex justify-between mt-3">
-                        <a class="text-zinc-200" href="">Update</a>
-                        <a class="text-red-500" href="/delete/<%= user._id %>">Delete</a>
-                    </div>
-                </div>
-            <% }) %>
-        </div>
+                <% }); %>
+            <% } else { %>
+                <h3 class="text-zinc-500">No Users Yet</h3>
+            <% } %>
+        </div>        
     </div>
 </body>
 </html>

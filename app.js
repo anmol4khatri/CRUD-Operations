@@ -35,6 +35,7 @@ app.get('/read', async (req, res) => {
 
 //Update API
 
+
 //Delete API
 app.get('/delete/:id', async(req,res) => {
     let users = await userModel.findOneAndDelete({_id: req.params.id});
